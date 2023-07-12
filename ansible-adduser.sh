@@ -32,6 +32,6 @@ sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/ssh
 sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' /etc/ssh/sshd_config
 
 # Restart SSH service
-service ssh restart
+service sshd restart
 
 echo "User $username has been created with root privileges."
