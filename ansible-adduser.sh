@@ -27,8 +27,9 @@ useradd -m -p "$password" $username
 # Give root privileges
 echo "$username ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-# Change password authentication to yes
-sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+# Enable password authentication and public key authentication
+sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' /etc/ssh/sshd_config
 
 # Restart SSH service
 service ssh restart
